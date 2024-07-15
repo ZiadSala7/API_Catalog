@@ -25,8 +25,11 @@ class DioConsumer extends ApiConsumer {
   Future getMethod(
       String path, Object? data, Map<String, dynamic>? queryParameter) async {
     try {
-      final response =
-          await dio.get(path, data: data, queryParameters: queryParameter);
+      final response = await dio.get(
+        path,
+        data: data,
+        queryParameters: queryParameter,
+      );
       return response.data;
     } on DioException catch (e) {
       dioExceptions(e);
@@ -35,12 +38,17 @@ class DioConsumer extends ApiConsumer {
 
   @override
   Future postMethod(
-      String path, dynamic data, Map<String, dynamic>? queryParameter,
-      {bool isFormData = false}) async {
+    String path,
+    dynamic data,
+    Map<String, dynamic>? queryParameter, {
+    bool isFormData = false,
+  }) async {
     try {
-      final response = await dio.post(path,
-          data: isFormData ? FormData.fromMap(data) : data,
-          queryParameters: queryParameter);
+      final response = await dio.post(
+        path,
+        data: isFormData ? FormData.fromMap(data) : data,
+        queryParameters: queryParameter,
+      );
       return response.data;
     } on DioException catch (e) {
       dioExceptions(e);
@@ -49,12 +57,17 @@ class DioConsumer extends ApiConsumer {
 
   @override
   Future patchMethod(
-      String path, dynamic data, Map<String, dynamic>? queryParameter,
-      {bool isFormData = false}) async {
+    String path,
+    dynamic data,
+    Map<String, dynamic>? queryParameter, {
+    bool isFormData = false,
+  }) async {
     try {
-      final response = await dio.patch(path,
-          data: isFormData ? FormData.fromMap(data) : data,
-          queryParameters: queryParameter);
+      final response = await dio.patch(
+        path,
+        data: isFormData ? FormData.fromMap(data) : data,
+        queryParameters: queryParameter,
+      );
       return response.data;
     } on DioException catch (e) {
       dioExceptions(e);
@@ -63,12 +76,17 @@ class DioConsumer extends ApiConsumer {
 
   @override
   Future deleteMethod(
-      String path, dynamic data, Map<String, dynamic>? queryParameter,
-      {bool isFormData = false}) async {
+    String path,
+    dynamic data,
+    Map<String, dynamic>? queryParameter, {
+    bool isFormData = false,
+  }) async {
     try {
-      final response = await dio.delete(path,
-          data: isFormData ? FormData.fromMap(data) : data,
-          queryParameters: queryParameter);
+      final response = await dio.delete(
+        path,
+        data: isFormData ? FormData.fromMap(data) : data,
+        queryParameters: queryParameter,
+      );
       return response.data;
     } on DioException catch (e) {
       dioExceptions(e);
